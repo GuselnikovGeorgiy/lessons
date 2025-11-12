@@ -1,6 +1,10 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lessons", "lessons\lessons.csproj", "{59B6447D-3FE9-4127-8D5F-B2641A30C039}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionFolder1", "SolutionFolder1", "{024C67CF-AE6C-4377-A5B9-488A9C4A3A37}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nums", "nums\nums.csproj", "{17558519-0C86-4BA7-B170-DF876913C075}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "numsTests", "numsTests\numsTests.csproj", "{E21663F4-96F9-4911-82E7-275A90B6E59D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -8,9 +12,17 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{59B6447D-3FE9-4127-8D5F-B2641A30C039}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{59B6447D-3FE9-4127-8D5F-B2641A30C039}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{59B6447D-3FE9-4127-8D5F-B2641A30C039}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{59B6447D-3FE9-4127-8D5F-B2641A30C039}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17558519-0C86-4BA7-B170-DF876913C075}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17558519-0C86-4BA7-B170-DF876913C075}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17558519-0C86-4BA7-B170-DF876913C075}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17558519-0C86-4BA7-B170-DF876913C075}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E21663F4-96F9-4911-82E7-275A90B6E59D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E21663F4-96F9-4911-82E7-275A90B6E59D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E21663F4-96F9-4911-82E7-275A90B6E59D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E21663F4-96F9-4911-82E7-275A90B6E59D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{17558519-0C86-4BA7-B170-DF876913C075} = {024C67CF-AE6C-4377-A5B9-488A9C4A3A37}
+		{E21663F4-96F9-4911-82E7-275A90B6E59D} = {024C67CF-AE6C-4377-A5B9-488A9C4A3A37}
 	EndGlobalSection
 EndGlobal
