@@ -2,9 +2,9 @@
 
 public class Nums
 {
-    public IEnumerable<int> GetOddNumbers(IEnumerable<int> numbers)
+    public IEnumerable<int> GetOddNumbers(ICollection<int> numbers)
     {
-        if (numbers == null  || numbers.Count() == 0)
+        if (numbers == null  || numbers.Count == 0)
         {
             return [];
         }
