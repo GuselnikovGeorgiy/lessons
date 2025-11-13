@@ -1,6 +1,6 @@
 ﻿namespace numsTests;
 
-public class GetOddNumbersTest
+public class GetOddNumbersTests
 {
     private readonly Nums _nums = new();
 
@@ -65,7 +65,7 @@ public class GetOddNumbersTest
     public void GetOddNumbers_ShouldReturnEmpty_WhenNullProvided()
     {
         // Arrange
-        List<int> numbers = null;
+        List<int>? numbers = null;
         var expected = new List<int>();
 
         // Act
