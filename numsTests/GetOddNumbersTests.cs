@@ -1,4 +1,6 @@
-﻿namespace numsTests;
+﻿using nums;
+
+namespace numsTests;
 
 public class GetOddNumbersTests
 {

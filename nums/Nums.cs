@@ -1,5 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
+namespace nums;
+
 public class Nums
 {
     public IEnumerable<int> GetOddNumbers(ICollection<int>? numbers)
@@ -40,11 +42,16 @@ public class Nums
         return res;
     }
 
+    public int? GetSingleOddNumber(ICollection<int>? numbers)
+    {
+        return numbers?.SingleOrDefault(n => n % 2 != 0);
+    }
+
     public static void Main(string[] args)
     {
         var numList = new List<int> {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
         var numbers = new Nums();
-        var result = numbers.GetLastOddNumber(numList);
+        var result = numbers.GetSingleOddNumber(numList);
         Console.WriteLine(string.Join(", ", result));
     }
 }

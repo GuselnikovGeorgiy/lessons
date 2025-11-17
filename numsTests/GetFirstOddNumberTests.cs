@@ -1,3 +1,5 @@
+using nums;
+
 namespace numsTests;
 
 public class GetFirstOddNumberTests
