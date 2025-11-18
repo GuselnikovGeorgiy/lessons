@@ -60,7 +60,7 @@ public class GetSingleOddNumberTests
     }
 
     [Fact]
-    public void GetSingleOddNumber_ShouldThrowsInvalidOperationException_When()
+    public void GetSingleOddNumber_ShouldThrowsInvalidOperationException_WhenManyOddNumbersProvided()
     {
         // Arrange
         var numbers = new List<int> { 1, 2, 3, 4, 5 };
@@ -79,5 +79,4 @@ public class GetSingleOddNumberTests
         // Или
         // Assert.Throws<InvalidOperationException>(() => _nums.GetSingleOddNumber(numbers));
     }
-    
 }
