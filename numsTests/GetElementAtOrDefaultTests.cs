@@ -16,7 +16,7 @@ public class GetElementAtOrDefaultTests
 
         // Act
         var result = _nums.GetElementAtOrDefault(numbers, index);
-
+            
         // Assert
         Assert.Equal(expected, result);
     }
