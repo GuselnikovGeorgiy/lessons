@@ -38,4 +38,17 @@ public class UserQueryService
             .OrderByDescending(user => user.Age)
             .ToList();
     }
+
+    public ICollection<Project> SelectUserProjects(ICollection<User>? users, int age)
+    {
+        if (users == null)
+        {
+            return [];
+        }
+        return users
+            .Where(user => user.Age > age)
+            .Where(user => user.Projects != null)
+            .SelectMany(user => user.Projects!)
+            .ToList();
+    }
 }
