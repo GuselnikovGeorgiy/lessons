@@ -99,9 +99,7 @@ public class GetPaginateUsersTests
         var result = paginate.CurrentUsersPage;
         
         // Assert
-        Assert.NotEmpty(result);
-        Assert.Equal(5, result.Count);
-        Assert.Equal(users, result);
+        Assert.Empty(result);
     }
     
     [Fact]

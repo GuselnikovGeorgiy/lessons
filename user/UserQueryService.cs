@@ -63,7 +63,7 @@ public class UserQueryService
             };
         }
 
-        if (take == 0)
+        if (take <= 0)
         {
             return new Paginate<User>
             {
