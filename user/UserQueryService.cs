@@ -51,4 +51,45 @@ public class UserQueryService
             .SelectMany(user => user.Projects!)
             .ToList();
     }
+
+    public Paginate<User> GetPaginateUsers(ICollection<User>? users, int? skip, int? take)
+    {
+        if (users == null)
+        {
+            return new Paginate<User>
+            {
+                CurrentUsersPage = new List<User>(),
+                TotalCount = 0
+            };
+        }
+
+        if (take == 0)
+        {
+            return new Paginate<User>
+            {
+                CurrentUsersPage = new List<User>(),
+                TotalCount = users.Count
+            };
+        }
+
+        var query = users.AsEnumerable();
+
+        if (skip != null && skip.Value > 0)
+        {
+            query = query.Skip(skip.Value);
+        }
+
+        if (take != null && take.Value > 0)
+        {
+            query = query.Take(take.Value);
+        }
+
+        var currentPage = query.ToList();
+
+        return new Paginate<User>
+        {
+            CurrentUsersPage = currentPage,
+            TotalCount = users.Count
+        };
+    }
 }
