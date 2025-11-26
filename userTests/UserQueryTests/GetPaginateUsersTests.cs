@@ -82,6 +82,29 @@ public class GetPaginateUsersTests
     }
     
     [Fact]
+    public void GetPaginateUsers_ShouldReturnUsers_WhenNegativeArgsProvided()
+    {
+        // Arrange
+        var users = new List<User>
+        {
+            new() { Id = Guid.NewGuid(), Name = "Ivan", Age = 18 },
+            new() { Id = Guid.NewGuid(), Name = "Petr", Age = 19 },
+            new() { Id = Guid.NewGuid(), Name = "Sanek", Age = 20 },
+            new() { Id = Guid.NewGuid(), Name = "Vlad", Age = 21 },
+            new() { Id = Guid.NewGuid(), Name = "Misha", Age = 22 }
+        };
+        
+        // Act
+        var paginate = _userService.GetPaginateUsers(users, -1, -1);
+        var result = paginate.CurrentUsersPage;
+        
+        // Assert
+        Assert.NotEmpty(result);
+        Assert.Equal(5, result.Count);
+        Assert.Equal(users, result);
+    }
+    
+    [Fact]
     public void GetPaginateUsers_ShouldReturnUsers_WhenCorrectArgsProvided()
     {
         // Arrange
