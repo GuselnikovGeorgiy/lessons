@@ -1,4 +1,6 @@
-﻿using user.Models;
+﻿using System.Collections.ObjectModel;
+using System.Runtime.InteropServices.JavaScript;
+using user.Models;
 
 namespace user;
 
@@ -91,5 +93,14 @@ public class UserQueryService
             CurrentUsersPage = currentPage,
             TotalCount = users.Count
         };
+    }
+
+    public ICollection<int> ReverseUserIds(ICollection<int>? userIds)
+    { 
+        if (userIds == null)
+        {
+            return [];
+        }
+        return userIds.Reverse().ToList();
     }
 }
