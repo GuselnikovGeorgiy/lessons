@@ -1,6 +1,4 @@
-﻿using System.Collections.ObjectModel;
-using System.Runtime.InteropServices.JavaScript;
-using user.Models;
+﻿using user.Models;
 
 namespace user;
 
@@ -102,5 +100,36 @@ public class UserQueryService
             return [];
         }
         return userIds.Reverse().ToList();
+    }
+
+    public bool AllAdultUsers(ICollection<User>? users)
+    {
+        if (users == null)
+        {
+            return false;
+        }
+        return users
+            .All(user => user.Age > 17);
+    }
+
+    public bool AnyAdultUser(ICollection<User>? users)
+    {
+        if (users == null)
+        {
+            return false;
+        }
+        return users
+            .Any(user => user.Age > 17);
+    }
+
+    public bool ContainsAdultUser(ICollection<User>? users)
+    {
+        if (users == null)
+        {
+            return false;
+        }
+        return users
+            .Select(user => user.Age)
+            .Contains(18);
     }
 }
