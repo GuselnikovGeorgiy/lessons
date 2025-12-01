@@ -1,5 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
+using System.Collections;
+
 namespace nums;
 
 public class Nums
@@ -52,11 +54,27 @@ public class Nums
         return collection?.ElementAtOrDefault(index);
     }
 
+    public ICollection<long> CastIntToLong(ICollection<int> list)
+    {
+        return list
+            .Select(Convert.ToInt64)
+            .ToList();
+    }
+
     public static void Main(string[] args)
     {
-        var numList = new List<int> {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
-        var numbers = new Nums();
-        var result = numbers.GetSingleOddNumber(numList);
-        Console.WriteLine(string.Join(", ", result));
+        // var numList = new List<int> {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+        // var numbers = new Nums();
+        // var result = numbers.CastIntToLong(numList);
+        // Console.WriteLine(string.Join(", ", result));
+        List<int> intList = new List<int> { 1, 2, 3, 4, 5 };
+
+        var longs = intList.Select(Convert.ToInt64);
+
+        foreach (var elem in longs) 
+        {
+            Console.WriteLine($"{elem}, {elem.GetType()}");
+        }
+
     }
 }

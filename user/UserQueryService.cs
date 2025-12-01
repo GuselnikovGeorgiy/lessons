@@ -114,12 +114,7 @@ public class UserQueryService
 
     public bool AnyAdultUser(ICollection<User>? users)
     {
-        if (users == null)
-        {
-            return false;
-        }
-        return users
-            .Any(user => user.Age > 17);
+        return users?.Any(user => user.Age > 17) ?? false;
     }
 
     public bool ContainsAdultUser(ICollection<User>? users)
