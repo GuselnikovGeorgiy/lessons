@@ -127,4 +127,13 @@ public class UserQueryService
             .Select(user => user.Age)
             .Contains(18);
     }
+
+    public Dictionary<int, List<User>> GroupUsersByAge(ICollection<User> users)
+    {
+        return users
+            .GroupBy(u => u.Age)
+            .ToDictionary(
+                g => g.Key, 
+                g => g.ToList());
+    }
 }
