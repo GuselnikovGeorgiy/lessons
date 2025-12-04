@@ -136,4 +136,11 @@ public class UserQueryService
                 g => g.Key, 
                 g => g.ToList());
     }
+
+    public ICollection<User> DistinctByIdUsers(ICollection<User> users)
+    {
+        return users
+            .DistinctBy(x => x.Id)
+            .ToList();
+    }
 }
