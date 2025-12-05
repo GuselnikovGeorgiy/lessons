@@ -143,4 +143,13 @@ public class UserQueryService
             .DistinctBy(x => x.Id)
             .ToList();
     }
+
+    public ICollection<User> FindUsersWithSameName(ICollection<User> firstGroup, ICollection<User> secondGroup)
+    {
+        return firstGroup
+            .IntersectBy(secondGroup
+                .Select(x => x.Name),
+                x => x.Name)
+            .ToList();
+    }
 }
