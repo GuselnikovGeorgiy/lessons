@@ -152,4 +152,28 @@ public class UserQueryService
                 x => x.Name)
             .ToList();
     }
+
+    /// <summary>
+    /// Группирует пользователей по возрасту, используя ToDictionary.
+    /// Ключ - возраст (Age), значение - первый пользователь с таким возрастом.
+    /// </summary>
+    public Dictionary<int, User> GroupByAgeUsingDictionary(ICollection<User> users)
+    {
+        return users
+            .DistinctBy(x => x.Age)
+            .ToDictionary(
+                x => x.Age,
+                x => x);
+    }
+
+    /// <summary>
+    /// Группирует пользователей по возрасту, используя ToLookup.
+    /// Ключ - возраст (Age), значение - последовательность всех пользователей этого возраста.
+    /// </summary>
+    public ILookup<int, User> GroupByAgeUsingLookup(ICollection<User> users)
+    {
+        return users.ToLookup(
+            x => x.Age, 
+            x => x);
+    }
 }
