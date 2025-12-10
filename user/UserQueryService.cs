@@ -10,6 +10,7 @@ public class UserQueryService
         {
             return [];
         }
+
         return users.Where(user => user.Age > age).Select(user => user.Id).ToList();
     }
 
@@ -19,7 +20,7 @@ public class UserQueryService
         {
             return [];
         }
-        
+
         return users
             .Where(user => user.Age >= age)
             .OrderBy(user => user.Age)
@@ -32,7 +33,7 @@ public class UserQueryService
         {
             return [];
         }
-        
+
         return users
             .Where(user => user.Age > age)
             .OrderByDescending(user => user.Age)
@@ -45,6 +46,7 @@ public class UserQueryService
         {
             return [];
         }
+
         return users
             .Where(user => user.Age > age)
             .Where(user => user.Projects != null)
@@ -94,11 +96,12 @@ public class UserQueryService
     }
 
     public ICollection<int> ReverseUserIds(ICollection<int>? userIds)
-    { 
+    {
         if (userIds == null)
         {
             return [];
         }
+
         return userIds.Reverse().ToList();
     }
 
@@ -108,6 +111,7 @@ public class UserQueryService
         {
             return false;
         }
+
         return users
             .All(user => user.Age > 17);
     }
@@ -123,6 +127,7 @@ public class UserQueryService
         {
             return false;
         }
+
         return users
             .Select(user => user.Age)
             .Contains(18);
@@ -133,7 +138,7 @@ public class UserQueryService
         return users
             .GroupBy(u => u.Age)
             .ToDictionary(
-                g => g.Key, 
+                g => g.Key,
                 g => g.ToList());
     }
 
@@ -148,7 +153,7 @@ public class UserQueryService
     {
         return firstGroup
             .IntersectBy(secondGroup
-                .Select(x => x.Name),
+                    .Select(x => x.Name),
                 x => x.Name)
             .ToList();
     }
@@ -173,7 +178,24 @@ public class UserQueryService
     public ILookup<int, User> GroupByAgeUsingLookup(ICollection<User> users)
     {
         return users.ToLookup(
-            x => x.Age, 
+            x => x.Age,
             x => x);
+    }
+
+public HashSet<User> UniqueUsersUsingRecord(ICollection<User> users)
+{
+    return new HashSet<User>(users);
+}
+    
+public HashSet<UserClass> UniqueUsersUsingClass(ICollection<UserClass> users)
+{
+    return users
+        .DistinctBy(x => new { x.Name, x.Age })
+        .ToHashSet();
+}
+    
+    public HashSet<UserClassEquatable> UniqueUsersUsingClassEquatable(ICollection<UserClassEquatable> users)
+    {
+        return users.ToHashSet();
     }
 }
