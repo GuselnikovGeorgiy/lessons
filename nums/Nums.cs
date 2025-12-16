@@ -61,12 +61,13 @@ public class Nums
             .ToList();
     }
 
+    public int GetSum(int[] array)
+    {
+        return array.Aggregate(0, (total, next) => total + next);
+    }
+
     public static void Main(string[] args)
     {
-        // var numList = new List<int> {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
-        // var numbers = new Nums();
-        // var result = numbers.CastIntToLong(numList);
-        // Console.WriteLine(string.Join(", ", result));
         List<int> intList = new List<int> { 1, 2, 3, 4, 5 };
 
         var longs = intList.Select(Convert.ToInt64);
