@@ -182,20 +182,61 @@ public class UserQueryService
             x => x);
     }
 
-public HashSet<User> UniqueUsersUsingRecord(ICollection<User> users)
-{
-    return new HashSet<User>(users);
-}
-    
-public HashSet<UserClass> UniqueUsersUsingClass(ICollection<UserClass> users)
-{
-    return users
-        .DistinctBy(x => new { x.Name, x.Age })
-        .ToHashSet();
-}
+    public HashSet<User> UniqueUsersUsingRecord(ICollection<User> users)
+    {
+        return new HashSet<User>(users);
+    }
+        
+    public HashSet<UserClass> UniqueUsersUsingClass(ICollection<UserClass> users)
+    {
+        return users
+            .DistinctBy(x => new { x.Name, x.Age })
+            .ToHashSet();
+    }
     
     public HashSet<UserClassEquatable> UniqueUsersUsingClassEquatable(ICollection<UserClassEquatable> users)
     {
         return users.ToHashSet();
+    }
+    
+    public ICollection<User> AddUserAtEnd(ICollection<User> users, User newUser)
+    {
+        return users
+            .Append(newUser)
+            .ToList();
+    }
+    
+    public ICollection<User> MergeUserCollections(ICollection<User> firstGroup, ICollection<User> secondGroup)
+    {
+        return firstGroup
+            .Concat(secondGroup)
+            .ToList();
+    }
+    
+    public ICollection<User> AddUserAtBeginning(ICollection<User> users, User newUser)
+    {
+        return users
+            .Prepend(newUser)
+            .ToList();
+    }
+
+    public int CountUsers(ICollection<User> users)
+    {
+        return users.Count;
+    }
+
+    public int MaxUserAge(ICollection<User> users)
+    {
+        return users.Count > 0 ? users.Max(x => x.Age) : 0;
+    }
+
+    public int MinUserAge(ICollection<User> users)
+    {
+        return users.Count > 0 ? users.Min(x => x.Age) : 0;
+    }
+
+    public int SumUserAge(ICollection<User> users)
+    {
+        return users.Sum(x => x.Age);
     }
 }
