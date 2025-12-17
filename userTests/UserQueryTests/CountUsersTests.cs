@@ -14,7 +14,7 @@ public class CountUsersTests
         var users = new List<User>();
         
         // Act
-        var result = _userService.CountUsers(users);
+        var result = _userService.CountAdultUsers(users);
         
         // Assert
         Assert.Equal(0, result);
@@ -32,7 +32,7 @@ public class CountUsersTests
         };
         
         // Act
-        var result = _userService.CountUsers(users);
+        var result = _userService.CountAdultUsers(users);
         
         // Assert
         Assert.Equal(3, result);

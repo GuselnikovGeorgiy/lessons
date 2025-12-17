@@ -220,9 +220,9 @@ public class UserQueryService
             .ToList();
     }
 
-    public int CountUsers(ICollection<User> users)
+    public int CountAdultUsers(ICollection<User> users)
     {
-        return users.Count;
+        return users.Count(x => x.Age > 17);
     }
 
     public int MaxUserAge(ICollection<User> users)
