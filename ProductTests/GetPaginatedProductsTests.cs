@@ -83,6 +83,25 @@ public class GetPaginatedProductsTests
     }
     
     [Fact]
+    public void GetPaginatedProducts_ShouldReturnRange_WhenNegativeSkipProvided()
+    {
+        // Arrange
+        var products = new List<ProductRecord>
+        {
+            new(1, "Product_1", 100),
+            new(2, "Product_2", 110),
+        };
+
+        var expected = new List<ProductRecord> { products[0], products[1] }; 
+        
+        // Act
+        var result = _productService.GetPaginatedProducts(products, -1, 2);
+        
+        // Assert
+        Assert.Equal(expected, result);
+    }
+    
+    [Fact]
     public void GetPaginatedProducts_ShouldReturnRange_WhenTakeGreaterThanListCountProvided()
     {
         // Arrange
