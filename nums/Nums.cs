@@ -78,4 +78,9 @@ public class Nums
         }
 
     }
+
+    public bool AreSequenceEqual(ICollection<int> firstList, ICollection<int> secondList)
+    {
+        return firstList.SequenceEqual(secondList);
+    }
 }
