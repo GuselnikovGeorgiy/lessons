@@ -239,4 +239,9 @@ public class UserQueryService
     {
         return users.Sum(x => x.Age);
     }
+
+    public bool AreSequencesEqual(ICollection<User> firstList, ICollection<User> secondList)
+    {
+        return firstList.SequenceEqual(secondList);
+    }
 }
